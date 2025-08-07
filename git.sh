@@ -14,6 +14,7 @@ eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
 echo "Public SSH key:"
 cat ~/.ssh/id_ed25519.pub
+
 if command -v xclip > /dev/null; then
     cat ~/.ssh/id_ed25519.pub | xclip -selection clipboard
     echo "Public key copied to clipboard with xclip."
