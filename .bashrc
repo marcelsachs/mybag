@@ -4,9 +4,9 @@
 
 [[ $- != *i* ]] && return
 
-PS1='\[\033[1;38;5;242m\]» \u « \[\033[1;38;5;226m\]\w $ \[\033[0m\]'
+PS1='\[\033[1;38;5;226m\]\w $ \[\033[0m\]'
 
-export EDITOR=gvim
+export EDITOR=vim
 
 # save and reload history after each command
 PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
