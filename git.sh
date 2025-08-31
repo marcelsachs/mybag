@@ -15,11 +15,15 @@ ssh-add ~/.ssh/id_ed25519
 echo "Public SSH key:"
 cat ~/.ssh/id_ed25519.pub
 
-if command -v xclip > /dev/null; then
-    cat ~/.ssh/id_ed25519.pub | xclip -selection clipboard
-    echo "Public key copied to clipboard with xclip."
+if command -v xclip > /dev/null && [ -n "$DISPLAY" ]; then
+    cat ~/.ssh/id_ed25519.pub | xclip -selection clipboard 2>/dev/null
+    if [ $? -eq 0 ]; then
+        echo "Public key copied to clipboard with xclip."
+    else
+        echo "Could not copy to clipboard. Copy the key manually."
+    fi
 else
-    echo "Install xclip or copy the key manually."
+    echo "No graphical display available. Copy the key manually."
 fi
 
 echo "test with:"
