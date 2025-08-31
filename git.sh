@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 git config --global user.name "marcelsachs"
 git config --global user.email "sachsmarcel@proton.me"
 git config --global init.defaultBranch master
