@@ -8,6 +8,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 cp .bashrc /sachs/.bashrc
 cp .vimrc /sachs/.vimrc
+cp .gitconfig /sachs/.gitconfig
 
 mkdir -p /sachs/.config/i3status
 mkdir -p /sachs/.config/foot
