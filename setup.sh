@@ -1,16 +1,19 @@
 #!/bin/bash
 
+set -e
+
 sudo timedatectl set-ntp true
 
-echo "FONT=ter-124b" >> /etc/vconsole.conf
-echo "GRUB_FONT=/usr/share/grub/ter-u32b.pf2" >> /etc/default/grub
-grub-mkconfig -o /boot/grub/grub.cfg
+sudo bash -c 'echo "FONT=ter-124b" >> /etc/vconsole.conf'
+sudo bash -c 'echo "GRUB_FONT=/usr/share/grub/ter-u32b.pf2" >> /etc/default/grub'
+sudo grub-mkconfig -o /boot/grub/grub.cfg
 
-cp .bashrc /sachs/.bashrc
-cp .vimrc /sachs/.vimrc
-cp .gitconfig /sachs/.gitconfig
+cp .bashrc "$HOME/.bashrc"
+cp .vimrc "$HOME/.vimrc" 
+cp .gitconfig "$HOME/.gitconfig"
 
-mkdir -p /sachs/.config/i3status
-mkdir -p /sachs/.config/foot
-mkdir -p /sachs/.config/sway
-cp -r .config/* /sachs/.config/
+mkdir -p "$HOME/.config/i3status"
+mkdir -p "$HOME/.config/foot"
+mkdir -p "$HOME/.config/sway"
+
+cp -r .config/* "$HOME/.config/"
