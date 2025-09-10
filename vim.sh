@@ -2,7 +2,7 @@
 
 set -e
 
-git clone https://github.com/vim/vim.git
+git clone --depth=1 https://github.com/vim/vim.git $HOME/vim
 cd vim/src
 
 ./configure --with-features=huge \
