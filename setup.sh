@@ -7,12 +7,11 @@ echo "Starting system setup..."
 sudo timedatectl set-ntp true
 
 echo "Installing packages with pacman..."
-sudo pacman -S --needed --noconfirm sway foot wmenu git vim base-devel
+sudo pacman -S --needed --noconfirm sway foot wmenu
 
 echo "Copying home directory configurations..."
-cp .bashrc "$HOME/.bashrc"
-cp .vimrc "$HOME/.vimrc" 
-cp .gitconfig "$HOME/.gitconfig"
+cp .config/bash "$HOME/.bashrc"
+cp .config/vim "$HOME/.vimrc"
 
 echo "Configuring git..."
 git config --global user.name "marcelsachs"
@@ -56,6 +55,9 @@ else
     echo "yay is already installed"
 fi
 
+echo "Installing ncurses5-compat-libs..."
+yay -S --noconfirm ncurses5-compat-libs
+
 echo "Building vim from source..."
 if [ ! -d "$HOME/vim" ]; then
     git clone --depth=1 https://github.com/vim/vim.git $HOME/vim
@@ -77,6 +79,8 @@ mkdir -p "$HOME/.config/i3status"
 mkdir -p "$HOME/.config/foot"
 mkdir -p "$HOME/.config/sway"
 
-cp -r .config/* "$HOME/.config/"
+cp .config/foot/foot.ini "$HOME/.config/foot/"
+cp .config/i3status/i3status.conf "$HOME/.config/i3status/"
+cp .config/sway/config "$HOME/.config/sway/"
 
 echo "Setup OK! Get to work now."
