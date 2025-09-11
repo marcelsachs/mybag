@@ -75,15 +75,14 @@ sudo make install
 echo "Vim built and installed. Checking clipboard support:"
 vim --version | grep clipboard
 
-cd -
 echo "Configuring sway, foot, and i3status..."
 
 mkdir -p "$HOME/.config/i3status"
 mkdir -p "$HOME/.config/foot"
 mkdir -p "$HOME/.config/sway"
 
-cp .config/foot/foot.ini "$HOME/.config/foot/"
-cp .config/i3status/config "$HOME/.config/i3status/"
-cp .config/sway/config "$HOME/.config/sway/"
+cp $HOME/mybag/.config/foot/foot.ini "$HOME/.config/foot/"
+cp $HOME/mybag/.config/i3status/config "$HOME/.config/i3status/"
+cp $HOME/mybag/.config/sway/config "$HOME/.config/sway/"
 
 echo "Setup OK! Get to work now."
